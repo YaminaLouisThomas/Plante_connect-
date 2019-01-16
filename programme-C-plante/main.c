@@ -1,0 +1,303 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "caracteristique.h"
+#include "sauvegarde.h"
+#include "plante.h"
+#include <time.h>
+
+int main()
+{
+
+
+    printf("BIENVENUE SUR CONNECTED FLOWERS\n");
+    printf("MENU PRINCIPAL\n");
+    printf("1. Choix des plantes\n");
+    printf("2. Sauvegarde\n");
+    printf("3. A propos\n");
+    printf("4. Comment ca marche\n");
+    printf("5. Quitter\n");
+
+    int choix_menu;
+    scanf("%d",&choix_menu);
+
+    if (choix_menu==1)
+    {
+        printf("CHOIX DES PLANTES\n");
+        printf("1. Alisier blanc\n2. Guimauve officinale\n3. Centaure noire\n4. Muguet\n5. Digitale pourpre\n6. Asperule odorante\n7. Hysope\n8. Iris faux acore\n9. Menthe a feuilles rondes\n10. Petite pervenche\n");
+        printf("11. Violette des chiens\n12. Origan commun\n13. Lysimaque commune\n14. Gesse des bois\n15. Knautie des champs\n16. Jasione des montagnes\n17. Aubepine a un style\n18. Calamagrostide commun\n19. populage des marais\n20. Campanule agglomeree\n");
+        printf("21. Laiche aigue\n22. Fetuque des moutons\n23. Heliantheme des apennins\n24. Piloselle officinal\n25. Millepertuis perfore\n26. Luzule des bois\n27. Osmonde royale\n28. Raiponce en epi\n29. Polypode commun\n30. Anemone pulsatille\n");
+        int choix_plante;
+        printf("Quelle plante veux-tu ?\n");
+        scanf("%d",&choix_plante);
+        if (choix_plante == 1)
+        {
+            alisier_blanc(5,45,23,25,68,75); // 1er humidité dans la terre, 2eme humidité requise, 3eme temperature, 4eme temperature requise,5eme luminosité,6eme luminosité requise
+        }
+        if (choix_plante == 2)
+        {
+            guillmauve_officinale(30,36,25,14,77,88);
+        }
+        if (choix_plante == 3)
+        {
+            centaure_noire(5,45,23,25,68,75);
+        }
+        if (choix_plante == 4)
+        {
+            muguet(65,45,23,25,68,75);
+        }
+        if (choix_plante == 5)
+        {
+            digitale_pourpre(5,45,23,25,68,75);
+        }
+        if (choix_plante == 6)
+        {
+            asperule_odorante(5,45,23,25,68,75);
+        }
+        if (choix_plante == 7)
+        {
+            hysope(5,45,23,25,68,75);
+        }
+        if (choix_plante == 8)
+        {
+            iris_faux_acore(5,45,23,25,68,75);
+        }
+        if (choix_plante == 9)
+        {
+            menthe_a_feuilles_rondes(5,45,23,25,68,75);
+        }
+        if (choix_plante == 10)
+        {
+            petite_pervenche(5,45,23,25,68,75);
+        }
+        if (choix_plante == 11)
+        {
+            violette_des_chiens(5,45,23,25,68,75);
+        }
+        if (choix_plante == 12)
+        {
+            origan_commun(5,45,23,25,68,75);
+        }
+        if (choix_plante == 13)
+        {
+            lysimaque_commune(5,45,23,25,68,75);
+        }
+        if (choix_plante == 14)
+        {
+            gesse_des_bois(5,45,23,25,68,75);
+        }
+        if (choix_plante == 15)
+        {
+            knautie_des_champs(5,45,23,25,68,75);
+        }
+        if (choix_plante == 16)
+        {
+            jasione_des_montagnes(5,45,23,25,68,75);
+        }
+        if (choix_plante == 17)
+        {
+            aubepine_a_un_style(5,45,23,25,68,75);
+        }
+        if (choix_plante == 18)
+        {
+            calamagrostide_commun(5,45,23,25,68,75);
+        }
+        if (choix_plante == 19)
+        {
+            populage_des_marais(5,45,23,25,68,75);
+        }
+        if (choix_plante == 20)
+        {
+            campanule_agglomeree(5,45,23,25,68,75);
+        }
+        if (choix_plante == 21)
+        {
+            laiche_aigue(5,45,23,25,68,75);
+        }
+        if (choix_plante == 22)
+        {
+            fetuque_des_moutons(5,45,23,25,68,75);
+        }
+        if (choix_plante == 23)
+        {
+            heliantheme_des_apennins(5,45,23,25,68,75);
+        }
+        if (choix_plante == 24)
+        {
+            piloselle_officinale(5,45,23,25,68,75);
+        }
+        if (choix_plante == 25)
+        {
+            millepertuis_perfore(5,45,23,25,68,75);
+        }
+        if (choix_plante == 26)
+        {
+            luzule_des_bois(5,45,23,25,68,75);
+        }
+        if (choix_plante == 27)
+        {
+            osmonde_royale(5,45,23,25,68,75);
+        }
+        if (choix_plante == 28)
+        {
+            raiponce_en_epi(5,45,23,25,68,75);
+        }
+        if (choix_plante == 29)
+        {
+            polypode_commun(5,45,23,25,68,75);
+        }
+        if (choix_plante == 30)
+        {
+            anemone_pulsatille(5,45,23,25,68,75);
+        }
+
+
+    }
+
+   if (choix_menu == 2)
+   {
+        printf("quelle historique de plante veux tu consulter ?\n");
+        printf("1. Alisier blanc\n2. Guimauve officinale\n3. Centaure noire\n4. Muguet\n5. Digitale pourpre\n6. Asperule odorante\n7. Hysope\n8. Iris faux acore\n9. Menthe a feuilles rondes\n10. Petite pervenche\n");
+        printf("11. Violette des chiens\n12. Origan commun\n13. Lysimaque commune\n14. Gesse des bois\n15. Knautie des champs\n16. Jasione des montagnes\n17. Aubepine a un style\n18. Calamagrostide commun\n19. populage des marais\n20. Campanule agglomeree\n");
+        printf("21. Laiche aigue\n22. Fetuque des moutons\n23. Heliantheme des apennins\n24. Piloselle officinal\n25. Millepertuis perfore\n26. Luzule des bois\n27. Osmonde royale\n28. Raiponce en epi\n29. Polypode commun\n30. Anemone pulsatille\n");
+        int choix_sauvegarde;
+        scanf("%d",&choix_sauvegarde);
+        if (choix_sauvegarde == 1)
+        {
+            consulte_sauvegarde_alisier_blanc();
+        }
+        if (choix_sauvegarde == 2)
+        {
+            consulte_sauvegarde_guillmauve_officinale();
+        }
+        if (choix_sauvegarde == 3)
+        {
+            consulte_sauvegarde_centaure_noire();
+        }
+        if (choix_sauvegarde == 4)
+        {
+            consulte_sauvegarde_muguet();
+        }
+        if (choix_sauvegarde == 5)
+        {
+            consulte_sauvegarde_digitale_pourpre();
+        }
+        if (choix_sauvegarde == 6)
+        {
+            consulte_sauvegarde_asperule_odorante();
+        }
+        if (choix_sauvegarde == 7)
+        {
+            consulte_sauvegarde_hysope();
+        }
+        if (choix_sauvegarde == 8)
+        {
+            consulte_sauvegarde_iris_faux_acore();
+        }
+        if (choix_sauvegarde == 9)
+        {
+            consulte_sauvegarde_menthe_a_feuilles_rondes();
+        }
+        if (choix_sauvegarde == 10)
+        {
+            consulte_sauvegarde_petite_pervenche();
+        }
+        if (choix_sauvegarde == 11)
+        {
+            consulte_sauvegarde_violette_des_chiens();
+        }
+        if (choix_sauvegarde == 12)
+        {
+            consulte_sauvegarde_origan_commun();
+        }
+        if (choix_sauvegarde == 13)
+        {
+            consulte_sauvegarde_lysimaque_commune();
+        }
+        if (choix_sauvegarde == 14)
+        {
+            consulte_sauvegarde_gesse_des_bois();
+        }
+        if (choix_sauvegarde == 15)
+        {
+            consulte_sauvegarde_knautie_des_champs();
+        }
+        if (choix_sauvegarde == 16)
+        {
+            consulte_sauvegarde_jasione_des_montagnes();
+        }
+        if (choix_sauvegarde == 17)
+        {
+            consulte_aubepine_a_un_style();
+        }
+        if (choix_sauvegarde == 18)
+        {
+            consulte_calamagrostide_commun();
+        }
+        if (choix_sauvegarde == 19)
+        {
+            consulte_populage_des_marais();
+        }
+        if (choix_sauvegarde == 20)
+        {
+            consulte_campanule_agglomeree();
+        }
+        if (choix_sauvegarde == 21)
+        {
+            consulte_laiche_aigue();
+        }
+        if (choix_sauvegarde == 22)
+        {
+            consulte_fetuque_des_moutons();
+        }
+        if (choix_sauvegarde == 23)
+        {
+            consulte_heliantheme_des_apennins();
+        }
+        if (choix_sauvegarde == 24)
+        {
+            consulte_piloselle_officinale();
+        }
+        if (choix_sauvegarde == 25)
+        {
+            consulte_millepertuis_perfore();
+        }
+        if (choix_sauvegarde == 26)
+        {
+            consulte_luzule_des_bois();
+        }
+        if (choix_sauvegarde == 27)
+        {
+            consulte_osmonde_royale();
+        }
+        if (choix_sauvegarde == 28)
+        {
+            consulte_raiponce_en_epi();
+        }
+        if (choix_sauvegarde == 29)
+        {
+            consulte_polypode_commun();
+        }
+        if (choix_sauvegarde == 30)
+        {
+            consulte_anemone_pulsatille();
+        }
+
+
+
+
+   }
+   if (choix_menu == 3)
+   {
+       printf("connected flowers");
+   }
+   if (choix_menu == 4)
+   {
+       printf("comment ça marche");
+   }
+   if (choix_menu == 5)
+        exit(0);
+
+    return 0;
+}
+
+
