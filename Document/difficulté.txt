@@ -1,0 +1,1 @@
+Aucune sauf pour mettre des accents pour l'affichage en C, ce qui donne pas mal de faute d'ortographe.
