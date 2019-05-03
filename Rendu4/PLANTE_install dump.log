@@ -1,0 +1,531 @@
+SQL> SET VERIFY OFF
+SQL> SET ECHO ON
+SQL> connect system/tellora
+Connecté.
+SQL> @plante
+SQL> set echo on
+SQL> 
+SQL> drop table utilisateur
+  2  cascade constraint;
+
+Table supprimée.
+
+SQL> 
+SQL> create table utilisateur
+  2  (
+  3  id_utilisateur		     integer	     not null,
+  4  nom_utilisateur		     varchar2(20)    not null,
+  5  prenom			     varchar2(20)    not null,
+  6  localisation_utilisateur	     varchar2(30)    not null,
+  7  constraint pk_utilisateur primary key (id_utilisateur)
+  8  )
+  9  ;
+
+Table créée.
+
+SQL> 
+SQL> drop table plante
+  2  cascade constraint;
+
+Table supprimée.
+
+SQL> 
+SQL> create table plante
+  2  (
+  3  id_plante			     integer	     not null,
+  4  nom_plante 		     varchar2(50)    not null,
+  5  taille_min 		     integer	     not null,
+  6  taille_max 		     integer	     not null,
+  7  couleur			     varchar2(20)    not null,
+  8  effet_benefique		     varchar2(200)   null    ,
+  9  humidite_optimal	     varchar2(5) not null,
+ 10  luminosite_optimal      varchar2(5) not null,
+ 11  temperature_optimal     varchar2(5) not null,
+ 12  localisation_plante	     varchar2(20)    not null,
+ 13  id_utilisateur		     integer	     not null,
+ 14  constraint pk_plante primary key (id_plante),
+ 15  constraint fk_id_utilisateur foreign key (id_utilisateur)
+ 16  references utilisateur (id_utilisateur)
+ 17  )
+ 18  ;
+
+Table créée.
+
+SQL> 
+SQL> drop table dernier_entretien
+  2  cascade constraint;
+
+Table supprimée.
+
+SQL> 
+SQL> create table dernier_entretien
+  2  (
+  3  id_entretien	     integer	     not null,
+  4  temperature	     varchar2(5)     not null,
+  5  luminosite 		     varchar2(8)     not null,
+  6  time			     date	     not null,
+  7  humidite			     varchar2(5)	     not null,
+  8  id_plante			     integer	     not null,
+  9  constraint pk_dernier_entretien primary key(id_entretien),
+ 10  constraint fk_id_plante foreign key (id_plante)
+ 11  references plante (id_plante)
+ 12  )
+ 13  ;
+
+Table créée.
+
+SQL> 
+SQL> insert into utilisateur values (1,'G','Y','Nanterre');
+
+1 ligne créée.
+
+SQL> insert into plante values (1,'alisier blanc',1.5,6.0,'Violette','Cicatrisant, diminution des ecchymoses, traitement des douleurs rhumatismales','70%','90%','30C','Paris',1);
+
+1 ligne créée.
+
+SQL> insert into  dernier_entretien values(1,'25C','100%',to_date('12/05/2019 10/10/10','DD/MM/YYYY HH24:MI:SS'),'5%',1);
+
+1 ligne créée.
+
+SQL> 
+SQL> 
+SQL> insert into plante values (2,'guillmauve officinale',0.6,1.2,'rose pale','traitement des aphtes, des abces et des furoncles','70%','60%','22C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (3,'centaure noire',0.3,0.9,'pourpre',null,'40%','90%','20C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (4,'muguet',0.15,0.30,'blanche',null,'70%','10%','15C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (5,'digitale pourpre',0.5,0.9,'pourpre clair','utilisee en medecine pour ralentir le rythme cardiaque','70%','90%','28C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (6,'asperule odorante',0.2,0.4,'pourpre clair','effets anticoagulants, antispasmodiques, sedatifs, stimulants de l''appareil digestif, diuretiques, antiseptiques','20%','10%','10%','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (7,'hysope',0.15,0.6,'violette','Cicatrisant, diminution des ecchymoses, traitement des douleurs rhumatismales','70%','80%','25C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (8,'iris faux acore',0.5,1.1,'jaune','Les liquides de l''iris faux-acore peuvent induire des dermatites chez les personnes sensibles','90%','80%','25C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (9,'menthe a feuilles rondes',0.15,0.7,'lilas pale',null,'20%','75%','23C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (10,'petite pervenche',0.3,2,'violette','Troubles de la mÃ©moire, de la concentration, de la vision et de l''audition... la petite pervenche stimule votre cerveau, grÃ¢ce Ã  son action sur le dÃ©bit sanguin qui irrigue le cerveau','70%','30%','20C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (11,'violette des chiens',0.05,0.25,'violette',null,'70%','30%','20C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (12,'origan commun',0.3,0.8,'rose pale',null,'50%','30%','20C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (13,'lysimaque commune',0.5,1,'jaune',null,'60%','50%','20C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (14,'gesse des bois',1,2,'rose',null,'60%','80%','25C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (15,'knautie des champs',0.3,0.6,'vert',null,'50%','50%','20C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (16,'jasione des montagnes',0.1,0.5,'bleu',null,'25%','75%','25C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (17,'aubepine a un style',2,10,'blanche',null,'60%','60%','21C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (18,'calamagrostide commun',0.6,1,'orange',null,'50%','75%','20C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (19,'populage des marais',0.4,0.5,'jaunes',null,'60%','75%','23C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (20,'campanule agglomeree',0.3,0.5,'violette',null,'50%','50%','25C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (21,'laiche aigue',0.5,1,'vert',null,'60%','75%','18C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (22,'fetuque des moutons',0.2,0.3,'vert',null,'10%','90%','30C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (23,'heliantheme des apennins',0.15,0.6,'blanche',null,'10%','90%','25C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (24,'piloselle officinale',0.10,0.15,'jaune',null,'40%','70%','25C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (25,'millepertuis perfore',0.2,0.8,'jaune',null,'40%','70%','25C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (26,'luzule des bois',0.5,0.7,'vert',null,'50%','40%','20C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (27,'osmonde royale',1,2,'vert',null,'70%','30%','18C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (28,'raiponce en epi',0.2,0.6,'vert',null,'30%','50%','25C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (29,'polypode commun',0.2,0.4,'vert',null,'60%','20%','20C','ile de france',1);
+
+1 ligne créée.
+
+SQL> insert into plante values (30,'anemone pulsatille',0.15,0.3,'vert',null,'20%','90%','25C','ile de france',1);
+
+1 ligne créée.
+
+SQL> 
+SQL> select nom_plante,couleur from plante
+  2  order by couleur;
+
+NOM_PLANTE                                         COULEUR                      
+-------------------------------------------------- --------------------         
+muguet                                             blanche                      
+aubepine a un style                                blanche                      
+heliantheme des apennins                           blanche                      
+jasione des montagnes                              bleu                         
+millepertuis perfore                               jaune                        
+lysimaque commune                                  jaune                        
+piloselle officinale                               jaune                        
+iris faux acore                                    jaune                        
+populage des marais                                jaunes                       
+menthe a feuilles rondes                           lilas pale                   
+calamagrostide commun                              orange                       
+
+NOM_PLANTE                                         COULEUR                      
+-------------------------------------------------- --------------------         
+centaure noire                                     pourpre                      
+digitale pourpre                                   pourpre clair                
+asperule odorante                                  pourpre clair                
+gesse des bois                                     rose                         
+origan commun                                      rose pale                    
+guillmauve officinale                              rose pale                    
+anemone pulsatille                                 vert                         
+knautie des champs                                 vert                         
+polypode commun                                    vert                         
+raiponce en epi                                    vert                         
+osmonde royale                                     vert                         
+
+NOM_PLANTE                                         COULEUR                      
+-------------------------------------------------- --------------------         
+luzule des bois                                    vert                         
+laiche aigue                                       vert                         
+fetuque des moutons                                vert                         
+alisier blanc                                      Violette                     
+petite pervenche                                   violette                     
+hysope                                             violette                     
+campanule agglomeree                               violette                     
+violette des chiens                                violette                     
+
+30 ligne(s) sélectionnée(s).
+
+SQL> 
+SQL> select nom_plante, effet_benefique from plante
+  2  where effet_benefique like '%';
+
+NOM_PLANTE                                                                      
+--------------------------------------------------                              
+EFFET_BENEFIQUE                                                                 
+--------------------------------------------------------------------------------
+alisier blanc                                                                   
+Cicatrisant, diminution des ecchymoses, traitement des douleurs rhumatismales   
+                                                                                
+guillmauve officinale                                                           
+traitement des aphtes, des abces et des furoncles                               
+                                                                                
+digitale pourpre                                                                
+utilisee en medecine pour ralentir le rythme cardiaque                          
+                                                                                
+
+NOM_PLANTE                                                                      
+--------------------------------------------------                              
+EFFET_BENEFIQUE                                                                 
+--------------------------------------------------------------------------------
+asperule odorante                                                               
+effets anticoagulants, antispasmodiques, sedatifs, stimulants de l'appareil dige
+stif, diuretiques, antiseptiques                                                
+                                                                                
+hysope                                                                          
+Cicatrisant, diminution des ecchymoses, traitement des douleurs rhumatismales   
+                                                                                
+iris faux acore                                                                 
+Les liquides de l'iris faux-acore peuvent induire des dermatites chez les person
+
+NOM_PLANTE                                                                      
+--------------------------------------------------                              
+EFFET_BENEFIQUE                                                                 
+--------------------------------------------------------------------------------
+nes sensibles                                                                   
+                                                                                
+petite pervenche                                                                
+Troubles de la mÃ©moire, de la concentration, de la vision et de l'audition... l
+a petite pervenche stimule votre cerveau, grÃ¢ce Ã  son action sur le dÃ©bit san
+guin qui irrigue le cerveau                                                     
+                                                                                
+
+7 ligne(s) sélectionnée(s).
+
+SQL> 
+SQL> select nom_plante, humidite_optimal from plante
+  2  order by humidite_optimal;
+
+NOM_PLANTE                                         HUMID                        
+-------------------------------------------------- -----                        
+fetuque des moutons                                10%                          
+heliantheme des apennins                           10%                          
+anemone pulsatille                                 20%                          
+menthe a feuilles rondes                           20%                          
+asperule odorante                                  20%                          
+jasione des montagnes                              25%                          
+raiponce en epi                                    30%                          
+millepertuis perfore                               40%                          
+centaure noire                                     40%                          
+piloselle officinale                               40%                          
+calamagrostide commun                              50%                          
+
+NOM_PLANTE                                         HUMID                        
+-------------------------------------------------- -----                        
+campanule agglomeree                               50%                          
+origan commun                                      50%                          
+luzule des bois                                    50%                          
+knautie des champs                                 50%                          
+populage des marais                                60%                          
+aubepine a un style                                60%                          
+gesse des bois                                     60%                          
+lysimaque commune                                  60%                          
+polypode commun                                    60%                          
+laiche aigue                                       60%                          
+petite pervenche                                   70%                          
+
+NOM_PLANTE                                         HUMID                        
+-------------------------------------------------- -----                        
+muguet                                             70%                          
+hysope                                             70%                          
+digitale pourpre                                   70%                          
+violette des chiens                                70%                          
+osmonde royale                                     70%                          
+guillmauve officinale                              70%                          
+alisier blanc                                      70%                          
+iris faux acore                                    90%                          
+
+30 ligne(s) sélectionnée(s).
+
+SQL> 
+SQL> select nom_plante, luminosite_optimal from plante
+  2  order by luminosite_optimal;
+
+NOM_PLANTE                                         LUMIN                        
+-------------------------------------------------- -----                        
+muguet                                             10%                          
+asperule odorante                                  10%                          
+polypode commun                                    20%                          
+osmonde royale                                     30%                          
+origan commun                                      30%                          
+violette des chiens                                30%                          
+petite pervenche                                   30%                          
+luzule des bois                                    40%                          
+knautie des champs                                 50%                          
+raiponce en epi                                    50%                          
+campanule agglomeree                               50%                          
+
+NOM_PLANTE                                         LUMIN                        
+-------------------------------------------------- -----                        
+lysimaque commune                                  50%                          
+guillmauve officinale                              60%                          
+aubepine a un style                                60%                          
+millepertuis perfore                               70%                          
+piloselle officinale                               70%                          
+jasione des montagnes                              75%                          
+laiche aigue                                       75%                          
+calamagrostide commun                              75%                          
+populage des marais                                75%                          
+menthe a feuilles rondes                           75%                          
+gesse des bois                                     80%                          
+
+NOM_PLANTE                                         LUMIN                        
+-------------------------------------------------- -----                        
+iris faux acore                                    80%                          
+hysope                                             80%                          
+anemone pulsatille                                 90%                          
+centaure noire                                     90%                          
+digitale pourpre                                   90%                          
+alisier blanc                                      90%                          
+heliantheme des apennins                           90%                          
+fetuque des moutons                                90%                          
+
+30 ligne(s) sélectionnée(s).
+
+SQL> 
+SQL> select nom_plante, temperature_optimal from plante
+  2  order by temperature_optimal;
+
+NOM_PLANTE                                         TEMPE                        
+-------------------------------------------------- -----                        
+asperule odorante                                  10%                          
+muguet                                             15C                          
+laiche aigue                                       18C                          
+osmonde royale                                     18C                          
+centaure noire                                     20C                          
+knautie des champs                                 20C                          
+polypode commun                                    20C                          
+luzule des bois                                    20C                          
+calamagrostide commun                              20C                          
+lysimaque commune                                  20C                          
+origan commun                                      20C                          
+
+NOM_PLANTE                                         TEMPE                        
+-------------------------------------------------- -----                        
+violette des chiens                                20C                          
+petite pervenche                                   20C                          
+aubepine a un style                                21C                          
+guillmauve officinale                              22C                          
+menthe a feuilles rondes                           23C                          
+populage des marais                                23C                          
+campanule agglomeree                               25C                          
+jasione des montagnes                              25C                          
+gesse des bois                                     25C                          
+anemone pulsatille                                 25C                          
+hysope                                             25C                          
+
+NOM_PLANTE                                         TEMPE                        
+-------------------------------------------------- -----                        
+iris faux acore                                    25C                          
+raiponce en epi                                    25C                          
+millepertuis perfore                               25C                          
+piloselle officinale                               25C                          
+heliantheme des apennins                           25C                          
+digitale pourpre                                   28C                          
+fetuque des moutons                                30C                          
+alisier blanc                                      30C                          
+
+30 ligne(s) sélectionnée(s).
+
+SQL> 
+SQL> select nom_plante, temperature, luminosite, humidite,time from plante
+  2  join dernier_entretien on dernier_entretien.id_plante = plante.id_plante;
+
+NOM_PLANTE                                         TEMPE LUMINOSI HUMID TIME    
+-------------------------------------------------- ----- -------- ----- --------
+alisier blanc                                      25C   100%     5%    12/05/19
+
+SQL> 
+SQL> select nom_plante, localisation_plante from plante;
+
+NOM_PLANTE                                         LOCALISATION_PLANTE          
+-------------------------------------------------- --------------------         
+alisier blanc                                      Paris                        
+guillmauve officinale                              ile de france                
+centaure noire                                     ile de france                
+muguet                                             ile de france                
+digitale pourpre                                   ile de france                
+asperule odorante                                  ile de france                
+hysope                                             ile de france                
+iris faux acore                                    ile de france                
+menthe a feuilles rondes                           ile de france                
+petite pervenche                                   ile de france                
+violette des chiens                                ile de france                
+
+NOM_PLANTE                                         LOCALISATION_PLANTE          
+-------------------------------------------------- --------------------         
+origan commun                                      ile de france                
+lysimaque commune                                  ile de france                
+gesse des bois                                     ile de france                
+knautie des champs                                 ile de france                
+jasione des montagnes                              ile de france                
+aubepine a un style                                ile de france                
+calamagrostide commun                              ile de france                
+populage des marais                                ile de france                
+campanule agglomeree                               ile de france                
+laiche aigue                                       ile de france                
+fetuque des moutons                                ile de france                
+
+NOM_PLANTE                                         LOCALISATION_PLANTE          
+-------------------------------------------------- --------------------         
+heliantheme des apennins                           ile de france                
+piloselle officinale                               ile de france                
+millepertuis perfore                               ile de france                
+luzule des bois                                    ile de france                
+osmonde royale                                     ile de france                
+raiponce en epi                                    ile de france                
+polypode commun                                    ile de france                
+anemone pulsatille                                 ile de france                
+
+30 ligne(s) sélectionnée(s).
+
+SQL> 
+SQL> select nom_plante, humidite_optimal, temperature_optimal,luminosite_optimal from plante
+  2  order by nom_plante;
+
+NOM_PLANTE                                         HUMID TEMPE LUMIN            
+-------------------------------------------------- ----- ----- -----            
+alisier blanc                                      70%   30C   90%              
+anemone pulsatille                                 20%   25C   90%              
+asperule odorante                                  20%   10%   10%              
+aubepine a un style                                60%   21C   60%              
+calamagrostide commun                              50%   20C   75%              
+campanule agglomeree                               50%   25C   50%              
+centaure noire                                     40%   20C   90%              
+digitale pourpre                                   70%   28C   90%              
+fetuque des moutons                                10%   30C   90%              
+gesse des bois                                     60%   25C   80%              
+guillmauve officinale                              70%   22C   60%              
+
+NOM_PLANTE                                         HUMID TEMPE LUMIN            
+-------------------------------------------------- ----- ----- -----            
+heliantheme des apennins                           10%   25C   90%              
+hysope                                             70%   25C   80%              
+iris faux acore                                    90%   25C   80%              
+jasione des montagnes                              25%   25C   75%              
+knautie des champs                                 50%   20C   50%              
+laiche aigue                                       60%   18C   75%              
+luzule des bois                                    50%   20C   40%              
+lysimaque commune                                  60%   20C   50%              
+menthe a feuilles rondes                           20%   23C   75%              
+millepertuis perfore                               40%   25C   70%              
+muguet                                             70%   15C   10%              
+
+NOM_PLANTE                                         HUMID TEMPE LUMIN            
+-------------------------------------------------- ----- ----- -----            
+origan commun                                      50%   20C   30%              
+osmonde royale                                     70%   18C   30%              
+petite pervenche                                   70%   20C   30%              
+piloselle officinale                               40%   25C   70%              
+polypode commun                                    60%   20C   20%              
+populage des marais                                60%   23C   75%              
+raiponce en epi                                    30%   25C   50%              
+violette des chiens                                70%   20C   30%              
+
+30 ligne(s) sélectionnée(s).
+
+SQL> spool off
