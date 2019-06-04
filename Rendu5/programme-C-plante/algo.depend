@@ -1,0 +1,47 @@
+# depslib dependency file v1.0
+1547491551 source:c:\users\louis\documents\plante connecté\algo\main.c
+	<stdio.h>
+	<stdlib.h>
+	"caracteristique.h"
+	"sauvegarde.h"
+	"plante.h"
+	<time.h>
+
+1547492097 source:c:\users\louis\documents\plante connecté\algo\sauvegarde.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1547403400 c:\users\louis\documents\plante connecté\algo\caracteristique.h
+	<stdio.h>
+	<stdlib.h>
+
+1547479082 c:\users\louis\documents\plante connecté\algo\sauvegarde.h
+	<stdio.h>
+	<stdlib.h>
+
+1547480542 source:c:\users\louis\documents\plante connecté\algo\caracteristique.c
+	<stdio.h>
+	<stdlib.h>
+
+1547491744 source:c:\users\louis\documents\plante connecté\algo\plante.c
+	<stdio.h>
+	<stdlib.h>
+
+1547490777 c:\users\louis\documents\plante connecté\algo\plante.h
+	<stdio.h>
+	<stdlib.h>
+
+1549550679 source:c:\users\louis\desktop\plante_connect-\programme-c-plante\caracteristique.c
+	<stdio.h>
+	<stdlib.h>
+
+1550946664 source:c:\users\louis\desktop\plante_connect-\programme-c-plante\plante.c
+	<stdio.h>
+	<stdlib.h>
+
+1549550679 source:c:\users\louis\desktop\plante_connect-\programme-c-plante\sauvegarde.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
