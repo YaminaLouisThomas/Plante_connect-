@@ -1,0 +1,3 @@
+Nous n'avons pas reussi a recuperer les variables de la temperature
+et de l'humidité dans le langage C, bien que ça marche sur arduino
+les deux codes ne sont pas vraiment reliés meme si il marche independament.
